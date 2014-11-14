@@ -6,7 +6,16 @@ function start() {
     document.getElementById("date").classList.add('disappear');
     getWeather();
     getClock();
-    getBattery();
+    if(autoAnimate){
+        setTimeout('autoAnimation()',3000);
+    }
+    getBattery(); //On computer testing put functions before this guy.
+}
+
+function autoAnimation() {
+    rotate();
+    
+    setTimeout('autoAnimation()', 4000);
 }
 
 function sizeWindow() {
@@ -49,24 +58,22 @@ function getClock() {
     document.getElementById("clock").innerHTML = currentTimeString;
     var month = currentTime.getMonth() + 1;
     var day = currentTime.getDate();
-    if (day < 10){
-        day ='0' + day;
+    if (day < 10) {
+        day = '0' + day;
     }
-    if (month < 10 ){
+    if (month < 10) {
         month = '0' + month;
     }
     document.getElementById("date").style.fontSize = fontSize + "px";
     document.getElementById("date").style.color = textColor;
     document.getElementById("date").style.top = fontSize + 10 + "px";
     document.getElementById("date").innerHTML = month + "/" + day;
-
     setTimeout('getClock()', 5000);
 }
 
-function getWeather() {   
+function getWeather() {
     var url = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%3D" + WOEID + "%20and%20u%3D\'" + tempUnit + "\'&format=json&diagnostics=true&callback=";
-    $.getJSON(url, function() {
-    }).done(function(data) {
+    $.getJSON(url, function() {}).done(function(data) {
         var temp = data.query.results.channel.item.condition.temp + "&deg;" + tempUnit.toUpperCase();
         document.getElementById("weather").style.fontSize = fontSize + "px";
         document.getElementById("weather").style.color = textColor;
@@ -78,8 +85,7 @@ function getWeather() {
         document.getElementById("weather").style.top = fontSize + 10 + "px";
         document.getElementById("weather").innerHTML = "?&deg;" + tempUnit.toUpperCase();
         setTimeout('getWeather()', 1000);
-    }).always(function() {
-    });
+    }).always(function() {});
     setTimeout('getWeather()', 60 * 1000 * 60 * refreshRate);
 }
 
@@ -94,11 +100,19 @@ function getBattery() {
         document.getElementById("battery").style.top = fontSize + 10 + "px";
         document.getElementById("battery").innerHTML = Level + "%";
     });
-    setTimeout('getBattery()', 60*1000);
+    setTimeout('getBattery()', 60 * 1000);
 }
 
 
 function onTap() {
+    if (autoAnimate == false) {
+        rotate();
+    }
+}
+
+
+
+function rotate() {
     var weatherDiv = document.getElementById("weather");
     var batteryDiv = document.getElementById("battery");
     var dateDiv = document.getElementById("date");
@@ -115,8 +129,7 @@ function onTap() {
             batteryDiv.classList.add('center');
             count = 2;
         }, 3000);
-    }
-    else if (count == 2) {
+    } else if (count == 2) {
         count = 3;
         batteryDiv.classList.remove('center');
         dateDiv.classList.remove('disappear');
@@ -129,8 +142,7 @@ function onTap() {
             dateDiv.classList.add('center');
             count = 4;
         }, 3000);
-    }
-    else if (count == 4) {
+    } else if (count == 4) {
         count = 5;
         dateDiv.classList.remove('center');
         weatherDiv.classList.remove('disappear');

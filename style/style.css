@@ -1,0 +1,66 @@
+@font-face {
+    font-family: steelfish-italic;
+    src: url('steelfish rg it.ttf');
+}
+div{
+    text-align: center;
+}
+div#clock {
+    position: absolute;
+    top: 10px;
+    width: 90%;
+    font-family: steelfish-italic;
+    font-size: 45px;
+}
+div#weather {
+    position: absolute;
+    top: 55px;
+    width: 90%;
+    font-family: steelfish-italic;
+    font-size: 45px;
+}
+div#battery {
+    position: absolute;
+    top: 55px;
+    width: 90%;
+    font-family: steelfish-italic;
+    font-size: 45px;
+}
+div#date {
+    position: absolute;
+    top: 55px;
+    width: 90%;
+    font-family: steelfish-italic;
+    font-size: 45px;
+}
+div#clickarea{
+  background-color: transparent;
+  height: 500px;
+  width: 90%;
+}
+.info.animate {
+    -webkit-transition: 3s;
+    -moz-transition: 3s;
+    -ms-transition: 3s;
+    -o-transition: 3s;
+    transition: 3s;
+    margin-left: 100%;
+    /*text-align: center;*/
+}
+.info.disappear {
+    visibility: hidden;
+	margin-left:-100% !important;
+}
+.info.animatein {
+	-webkit-transition: 3s;
+    -moz-transition: 3s;
+    -ms-transition: 3s;
+    -o-transition: 3s;
+    transition: 3s;
+    margin-left: 0% !important;
+    /*text-align: center;*/
+}
+.info.center {
+	margin-left: 0% !important;
+    /*text-align: center;*/
+}

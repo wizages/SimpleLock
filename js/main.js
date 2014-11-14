@@ -9,13 +9,13 @@ function start() {
     if(autoAnimate){
         setTimeout('autoAnimation()',3000);
     }
+
     getBattery(); //On computer testing put functions before this guy.
 }
 
 function autoAnimation() {
     rotate();
-    
-    setTimeout('autoAnimation()', 4000);
+    setTimeout('autoAnimation()', (3 + animationPause) * 1000);
 }
 
 function sizeWindow() {
@@ -116,6 +116,9 @@ function rotate() {
     var weatherDiv = document.getElementById("weather");
     var batteryDiv = document.getElementById("battery");
     var dateDiv = document.getElementById("date");
+    weatherDiv.style.transitionDuration="2s";
+    batteryDiv.style.transitionDuration="2s";
+    dateDiv.style.transitionDuration="2s";
     if (count == 0) {
         count = 1;
         weatherDiv.classList.remove('center');

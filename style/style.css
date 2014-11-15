@@ -18,6 +18,7 @@ div#weather {
     width: 90%;
     font-family: steelfish-italic;
     font-size: 45px;
+    transition: 0s;
 }
 div#battery {
     position: absolute;
@@ -52,7 +53,6 @@ div#clickarea{
 .info.disappear {
     visibility: hidden;
 	margin-left:-100% !important;
-    transition: 0s;
 }
 .info.animatein {
 	/*-webkit-transition: 3s;

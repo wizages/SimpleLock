@@ -15,7 +15,7 @@ function start() {
 
 function autoAnimation() {
     rotate();
-    setTimeout('autoAnimation()', (3 + animationPause) * 1000);
+    setTimeout('autoAnimation()', (animationLength + animationPause) * 1000);
 }
 
 function sizeWindow() {
@@ -116,9 +116,9 @@ function rotate() {
     var weatherDiv = document.getElementById("weather");
     var batteryDiv = document.getElementById("battery");
     var dateDiv = document.getElementById("date");
-    weatherDiv.style.transitionDuration="2s";
-    batteryDiv.style.transitionDuration="2s";
-    dateDiv.style.transitionDuration="2s";
+    batteryDiv.style.transitionDuration= animationLength + "s";
+    dateDiv.style.transitionDuration= animationLength + "s";
+    weatherDiv.style.transitionDuration=animationLength + "s";
     if (count == 0) {
         count = 1;
         weatherDiv.classList.remove('center');
@@ -129,9 +129,10 @@ function rotate() {
             batteryDiv.classList.remove('animatein');
             weatherDiv.classList.remove('animate');
             weatherDiv.classList.add('disappear');
+            weatherDiv.style.transitionDuration="0s";
             batteryDiv.classList.add('center');
             count = 2;
-        }, 3000);
+        }, animationLength*1000);
     } else if (count == 2) {
         count = 3;
         batteryDiv.classList.remove('center');
@@ -142,9 +143,10 @@ function rotate() {
             dateDiv.classList.remove('animatein');
             batteryDiv.classList.remove('animate');
             batteryDiv.classList.add('disappear');
+            batteryDiv.style.transitionDuration="0s";
             dateDiv.classList.add('center');
             count = 4;
-        }, 3000);
+        }, animationLength*1000);
     } else if (count == 4) {
         count = 5;
         dateDiv.classList.remove('center');
@@ -155,8 +157,9 @@ function rotate() {
             weatherDiv.classList.remove('animatein');
             dateDiv.classList.remove('animate');
             dateDiv.classList.add('disappear');
+            dateDiv.style.transitionDuration="0s";
             weatherDiv.classList.add('center');
             count = 0;
-        }, 3000);
+        }, animationLength*1000);
     }
 }

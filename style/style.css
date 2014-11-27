@@ -8,14 +8,14 @@ div{
 div#clock {
     position: absolute;
     top: 10px;
-    width: 90%;
+    width: 95%;
     font-family: steelfish-italic;
     font-size: 45px;
 }
 div#weather {
     position: absolute;
     top: 55px;
-    width: 90%;
+    width: 95%;
     font-family: steelfish-italic;
     font-size: 45px;
     transition: 0s;
@@ -23,14 +23,14 @@ div#weather {
 div#battery {
     position: absolute;
     top: 55px;
-    width: 90%;
+    width: 95%;
     font-family: steelfish-italic;
     font-size: 45px;
 }
 div#date {
     position: absolute;
     top: 55px;
-    width: 90%;
+    width: 95%;
     font-family: steelfish-italic;
     font-size: 45px;
 }

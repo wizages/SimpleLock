@@ -1,13 +1,15 @@
 var count = 0;
 
 function start() {
-    document.getElementById("weather").classList.add('center');
-    document.getElementById("battery").classList.add('disappear');
-    document.getElementById("date").classList.add('disappear');
+    document.getElementById("weather").classList.add('animate_revolve3');
+    document.getElementById("battery").classList.add('animate_revolve1');
+    document.getElementById("date").classList.add('animate_revolve2');
+    //document.getElementById("battery").classList.add('disappear');
+    //document.getElementById("date").classList.add('disappear');
     getWeather();
     getClock();
-    if(autoAnimate){
-        setTimeout('autoAnimation()',3000);
+    if (autoAnimate) {
+        setTimeout('autoAnimation()', 3000);
     }
 
     getBattery(); //On computer testing put functions before this guy.
@@ -90,35 +92,106 @@ function getWeather() {
 }
 
 function getBattery() {
-    $.get('file:///private/var/mobile/Library/BatteryStats.txt', function(appdata) {
+    
+        $.get('file:///private/var/mobile/Library/BatteryStats.txt', function(appdata) {
 
-        var substr = appdata.split('\n');
-        var Level = substr[0].split(':')[1];
-        //state = substr[1].split(':')[1];
-        document.getElementById("battery").style.fontSize = fontSize + "px";
-        document.getElementById("battery").style.color = textColor;
-        document.getElementById("battery").style.top = fontSize + 10 + "px";
-        document.getElementById("battery").innerHTML = Level + "%";
-    });
-    setTimeout('getBattery()', 60 * 1000);
+            var substr = appdata.split('\n');
+            var Level = substr[0].split(':')[1];
+            //state = substr[1].split(':')[1];
+            document.getElementById("battery").style.fontSize = fontSize + "px";
+            document.getElementById("battery").style.color = textColor;
+            document.getElementById("battery").style.top = fontSize + 10 + "px";
+            document.getElementById("battery").innerHTML = Level + "%";
+        });
+        //appdata.remove();
+        setTimeout('getBattery()', 60 * 1000);
+     /*   
+    document.getElementById("battery").style.fontSize = fontSize + "px";
+    document.getElementById("battery").style.color = textColor;
+    document.getElementById("battery").style.top = fontSize + 10 + "px";
+    document.getElementById("battery").innerHTML = "55" + "%";
+    */
 }
 
 
 function onTap() {
     if (autoAnimate == false) {
-        rotate();
+        //rotate();
+        animate_revolve();
     }
+
 }
 
+function auto_animate_revolve() {
+    var weatherDiv = document.getElementById("weather");
+    var batteryDiv = document.getElementById("battery");
+    var dateDiv = document.getElementById("date");
+    weatherDiv.classList.remove('animate_revolve3');
+    weatherDiv.classList.add('animate_revolve1');
+    batteryDiv.classList.remove('animate_revolve1');
+    batteryDiv.classList.add('animate_revolve2');
+    dateDiv.classList.remove('animate_revolve2');
+    dateDiv.classList.add('animate_revolve3');
+    setTimeout(function() {
+        weatherDiv.classList.remove('animate_revolve1');
+        weatherDiv.classList.add('animate_revolve2');
+        batteryDiv.classList.remove('animate_revolve2');
+        batteryDiv.classList.add('animate_revolve3');
+        dateDiv.classList.remove('animate_revolve3');
+        dateDiv.classList.add('animate_revolve1');
+        setTimeout(function() {
+            weatherDiv.classList.remove('animate_revolve2');
+            weatherDiv.classList.add('animate_revolve3');
+            batteryDiv.classList.remove('animate_revolve3');
+            batteryDiv.classList.add('animate_revolve1');
+            dateDiv.classList.remove('animate_revolve1');
+            dateDiv.classList.add('animate_revolve2');
+        }, 3000);
 
+    }, 3000);
+}
+
+function animate_revolve() {
+    var weatherDiv = document.getElementById("weather");
+    var batteryDiv = document.getElementById("battery");
+    var dateDiv = document.getElementById("date");
+    if (count == 0) {
+        count = 1;
+        weatherDiv.classList.remove('animate_revolve3');
+        weatherDiv.classList.add('animate_revolve1');
+        batteryDiv.classList.remove('animate_revolve1');
+        batteryDiv.classList.add('animate_revolve2');
+        dateDiv.classList.remove('animate_revolve2');
+        dateDiv.classList.add('animate_revolve3');
+        setTimeout(count = 2, 3000);
+    } else if (count == 2) {
+        count = 3;
+        weatherDiv.classList.remove('animate_revolve1');
+        weatherDiv.classList.add('animate_revolve2');
+        batteryDiv.classList.remove('animate_revolve2');
+        batteryDiv.classList.add('animate_revolve3');
+        dateDiv.classList.remove('animate_revolve3');
+        dateDiv.classList.add('animate_revolve1');
+        setTimeout(count = 4, 3000);
+    } else if (count == 4) {
+        count = 5;
+        weatherDiv.classList.remove('animate_revolve2');
+        weatherDiv.classList.add('animate_revolve3');
+        batteryDiv.classList.remove('animate_revolve3');
+        batteryDiv.classList.add('animate_revolve1');
+        dateDiv.classList.remove('animate_revolve1');
+        dateDiv.classList.add('animate_revolve2');
+        setTimeout(count = 0, 3000);
+    }
+}
 
 function rotate() {
     var weatherDiv = document.getElementById("weather");
     var batteryDiv = document.getElementById("battery");
     var dateDiv = document.getElementById("date");
-    batteryDiv.style.transitionDuration= animationLength + "s";
-    dateDiv.style.transitionDuration= animationLength + "s";
-    weatherDiv.style.transitionDuration=animationLength + "s";
+    batteryDiv.style.transitionDuration = animationLength + "s";
+    dateDiv.style.transitionDuration = animationLength + "s";
+    weatherDiv.style.transitionDuration = animationLength + "s";
     if (count == 0) {
         count = 1;
         weatherDiv.classList.remove('center');
@@ -129,10 +202,10 @@ function rotate() {
             batteryDiv.classList.remove('animatein');
             weatherDiv.classList.remove('animate');
             weatherDiv.classList.add('disappear');
-            weatherDiv.style.transitionDuration="0s";
+            weatherDiv.style.transitionDuration = "0s";
             batteryDiv.classList.add('center');
             count = 2;
-        }, animationLength*1000);
+        }, animationLength * 1000);
     } else if (count == 2) {
         count = 3;
         batteryDiv.classList.remove('center');
@@ -143,10 +216,10 @@ function rotate() {
             dateDiv.classList.remove('animatein');
             batteryDiv.classList.remove('animate');
             batteryDiv.classList.add('disappear');
-            batteryDiv.style.transitionDuration="0s";
+            batteryDiv.style.transitionDuration = "0s";
             dateDiv.classList.add('center');
             count = 4;
-        }, animationLength*1000);
+        }, animationLength * 1000);
     } else if (count == 4) {
         count = 5;
         dateDiv.classList.remove('center');
@@ -157,9 +230,9 @@ function rotate() {
             weatherDiv.classList.remove('animatein');
             dateDiv.classList.remove('animate');
             dateDiv.classList.add('disappear');
-            dateDiv.style.transitionDuration="0s";
+            dateDiv.style.transitionDuration = "0s";
             weatherDiv.classList.add('center');
             count = 0;
-        }, animationLength*1000);
+        }, animationLength * 1000);
     }
 }

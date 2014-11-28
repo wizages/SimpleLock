@@ -5,6 +5,6 @@ var textColor = "black"; // Change color of text. Enter a color name, hex, or rg
 var fontSize = 70;
 var refreshRate = 1; // Change refresh rate of weather (hours)
 var ampmVisable = true; // Turns am and pm visablity on and off
-var autoAnimate = true; // Turns on auto animation so no more tapping
+var autoAnimate = false; // Turns on auto animation so no more tapping
 var animationLength = 2; // Time in sec for animation to take place
 var animationPause = 1;

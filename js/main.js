@@ -1,11 +1,11 @@
 var count = 0;
 
 function start() {
-    document.getElementById("weather").classList.add('animate_revolve3');
+   // document.getElementById("weather").classList.add('animate_revolve3');
     //document.getElementById("battery").classList.add('animate_revolve1');
     //document.getElementById("date").classList.add('animate_revolve2');
-    document.getElementById("battery").classList.add('disappear');
-    document.getElementById("date").classList.add('disappear');
+    //document.getElementById("battery").classList.add('disappear');
+    //document.getElementById("date").classList.add('disappear');
     getWeather();
     getClock();
     if (autoAnimate) {
@@ -163,35 +163,31 @@ function animate_revolve() {
         count = 1;
         weatherDiv.classList.remove('animate_revolve3');
         weatherDiv.classList.add('animate_revolve1');
-        /*
+        
         batteryDiv.classList.remove('animate_revolve1');
         batteryDiv.classList.add('animate_revolve2');
         dateDiv.classList.remove('animate_revolve2');
         dateDiv.classList.add('animate_revolve3');
-        */
+        
         setTimeout(function() {count = 2;}, 3000);
         
     } else if (count == 2) {
         count = 3;
         weatherDiv.classList.remove('animate_revolve1');
         weatherDiv.classList.add('animate_revolve2');
-        /*
         batteryDiv.classList.remove('animate_revolve2');
         batteryDiv.classList.add('animate_revolve3');
         dateDiv.classList.remove('animate_revolve3');
         dateDiv.classList.add('animate_revolve1');
-        */
         setTimeout(function() {count = 4;}, 3000);
     } else if (count == 4) {
         count = 5;
         weatherDiv.classList.remove('animate_revolve2');
         weatherDiv.classList.add('animate_revolve3');
-        /*
         batteryDiv.classList.remove('animate_revolve3');
         batteryDiv.classList.add('animate_revolve1');
         dateDiv.classList.remove('animate_revolve1');
         dateDiv.classList.add('animate_revolve2');
-        */
         setTimeout(function() {count = 0;}, 3000);
     }
 }

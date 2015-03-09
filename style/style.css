@@ -76,6 +76,7 @@ div#clickarea {
     /*text-align: center;*/
 }
 .info.animate_revolve1 {
+/*<<<<<<< HEAD*/
     -webkit-animation-name: animation1;
     -webkit-animation-duration: 3s;
     -webkit-animation-timing-function: linear;
@@ -120,11 +121,11 @@ div#clickarea {
 @-webkit-keyframes animation1 {
     from {
         transform: translate(0px, 0px) scaleX(1.00) scaleY(1.00);
-    }/*
+    }
     50% {
         transform: translate(50%, 0px) scaleX(0.75) scaleY(0.75);
     }
-    */
+    
     to {
         transform: translate(25px, 0px) scaleX(0.50) scaleY(0.50);
     }
@@ -132,11 +133,11 @@ div#clickarea {
 @-webkit-keyframes animation2 {
     from {
         transform: translate(25px, 0px) scaleX(0.50) scaleY(0.50);
-    }/*
+    }
     50% {
         transform: translate(0%, 0px) scaleX(0.25) scaleY(0.25);
     }
-    */
+    
     to {
         transform: translate(-25px, 0px) scaleX(0.50) scaleY(0.50);
     }
@@ -144,11 +145,11 @@ div#clickarea {
 @-webkit-keyframes animation3 {
     from {
         transform: translate(-25px, 0px) scaleX(0.50) scaleY(0.50);
-    }/*
+    }
     50% {
         transform: translate(-50%, 0px) scaleX(0.75) scaleY(0.75);
     }
-    */
+    
     to {
         transform: translate(0px, 0px) scaleX(1.00) scaleY(1.00);
     }
@@ -156,11 +157,11 @@ div#clickarea {
 @keyframes animation1 {
     from {
         transform: translate(0px, 0px) scaleX(1.00) scaleY(1.00);
-    }/*
+    }
     50% {
         transform: translate(50%, 0px) scaleX(0.75) scaleY(0.75);
     }
-    */
+    
     to {
         transform: translate(25px, 0px) scaleX(0.50) scaleY(0.50);
     }
@@ -168,11 +169,11 @@ div#clickarea {
 @keyframes animation2 {
     from {
         transform: translate(25px, 0px) scaleX(0.50) scaleY(0.50);
-    }/*
+    }
     50% {
         transform: translate(0%, 0px) scaleX(0.25) scaleY(0.25);
     }
-    */
+    
     to {
         transform: translate(-25px, 0px) scaleX(0.50) scaleY(0.50);
     }
@@ -180,11 +181,11 @@ div#clickarea {
 @keyframes animation3 {
     from {
         transform: translate(-25px 0px) scaleX(0.50) scaleY(0.50);
-    }/*
+    }
     50% {
         transform: translate(-50%, 0px) scaleX(0.75) scaleY(0.75);
     }
-    */
+    
     to {
         transform: translate(0px, 0px) scaleX(1.00) scaleY(1.00);
     }

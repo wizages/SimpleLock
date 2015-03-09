@@ -103,8 +103,11 @@ function getBattery() {
             document.getElementById("battery").style.top = fontSize + 10 + "px";
             document.getElementById("battery").innerHTML = Level + "%";
         });
+
         setTimeout('getBattery()', 60 * 1000);  
-    */
+        //appdata.remove();
+        setTimeout('getBattery()', 60 * 1000);
+       */ 
     document.getElementById("battery").style.fontSize = fontSize + "px";
     document.getElementById("battery").style.color = textColor;
     document.getElementById("battery").style.top = fontSize + 10 + "px";
@@ -166,7 +169,8 @@ function animate_revolve() {
         dateDiv.classList.remove('animate_revolve2');
         dateDiv.classList.add('animate_revolve3');
         */
-        setTimeout(count = 2, 3000);
+        setTimeout(function() {count = 2;}, 3000);
+        
     } else if (count == 2) {
         count = 3;
         weatherDiv.classList.remove('animate_revolve1');
@@ -177,7 +181,7 @@ function animate_revolve() {
         dateDiv.classList.remove('animate_revolve3');
         dateDiv.classList.add('animate_revolve1');
         */
-        setTimeout(count = 4, 3000);
+        setTimeout(function() {count = 4;}, 3000);
     } else if (count == 4) {
         count = 5;
         weatherDiv.classList.remove('animate_revolve2');
@@ -188,7 +192,7 @@ function animate_revolve() {
         dateDiv.classList.remove('animate_revolve1');
         dateDiv.classList.add('animate_revolve2');
         */
-        setTimeout(count = 0, 3000);
+        setTimeout(function() {count = 0;}, 3000);
     }
 }
 
